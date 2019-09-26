@@ -191,4 +191,11 @@ class OpenProject
     public function categories() {
         return $this->get_api('CategoryService');
     }
+    
+    /**
+    * @return KanbanService
+    */
+    public function kanban() {
+        return $this->get_api('KanbanService');
+    }
 }

@@ -67,6 +67,10 @@ class TaskService extends AbstractService
         if(isset($data['type'])){
             $options['_links']['customField2'] = array("href" => "/api/v3/custom_options/" . $data['type']);
         }
+        
+        if(isset($data['kanbanBoard'])){
+            $options['_links']['kanbanBoard'] = array("href" => "/api/v3/kanban_boards/" . $data['kanbanBoard']);
+        }
 
         $options['_links']['type'] = array("href" => "/api/v3/types/" . $type);
 
@@ -133,7 +137,11 @@ class TaskService extends AbstractService
         if(isset($data['type'])){
             $options['_links']['customField2'] = array("href" => "/api/v3/custom_options/" . $data['type']);
         }
-
+        
+        if(isset($data['kanbanBoard'])){
+            $options['_links']['kanbanBoard'] = array("href" => "/api/v3/kanban_boards/" . $data['kanbanBoard']);
+        }
+        
         return $this->client->request('api/v3/work_packages/' . $task_id . '', 'patch', $options);
     }
 
